@@ -1,0 +1,4596 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "ALABATT-CES API",
+    "description": "Generated from the route registry. Describes paths, methods and access rules only; request/response payload schemas are not declared in code and are therefore not included.",
+    "version": "unversioned"
+  },
+  "components": {
+    "securitySchemes": {
+      "session": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "ces_session"
+      }
+    }
+  },
+  "paths": {
+    "/api/admin/audit": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/audit",
+        "description": "Permission `audit.view`. Roles: admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "audit.view",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/bulk/assign": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/bulk/assign",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/config": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/config",
+        "description": "Permission `config.manage`. Roles: super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "config.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "PUT /api/admin/config",
+        "description": "Permission `config.manage`. Roles: super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "config.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/funding/applications": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/funding/applications",
+        "description": "Permission `funding.manage`. Roles: funding_officer, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "funding.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/funding/applications/{id}": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/funding/applications/:id",
+        "description": "Permission `funding.manage`. Roles: funding_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "funding.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/funding/applications/{id}/assign": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/funding/applications/:id/assign",
+        "description": "Permission `funding.manage`. Roles: funding_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "funding.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/funding/applications/{id}/complete": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/funding/applications/:id/complete",
+        "description": "Permission `funding.manage`. Roles: funding_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "funding.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/funding/applications/{id}/decide": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/funding/applications/:id/decide",
+        "description": "Permission `funding.review`. Roles: funding_officer, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "funding.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/funding/applications/{id}/disburse": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/funding/applications/:id/disburse",
+        "description": "Permission `funding.disburse`. Roles: admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "funding.disburse",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/funding/applications/{id}/recommend": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/funding/applications/:id/recommend",
+        "description": "Permission `funding.review`. Roles: funding_officer, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "funding.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/funding/opportunities": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/funding/opportunities",
+        "description": "Permission `funding.manage`. Roles: funding_officer, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "funding.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/funding/opportunities",
+        "description": "Permission `funding.manage`. Roles: funding_officer, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "funding.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/funding/opportunities/{id}": {
+      "patch": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "PATCH /api/admin/funding/opportunities/:id",
+        "description": "Permission `funding.manage`. Roles: funding_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "funding.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/funding/opportunities/{id}/close": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/funding/opportunities/:id/close",
+        "description": "Permission `funding.manage`. Roles: funding_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "funding.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/funding/opportunities/{id}/open": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/funding/opportunities/:id/open",
+        "description": "Permission `funding.manage`. Roles: funding_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "funding.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/mentor-applications": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/mentor-applications",
+        "description": "Permission `mentor.review`. Roles: incubation_manager, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "mentor.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/mentor-applications/{id}": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/mentor-applications/:id",
+        "description": "Permission `mentor.review`. Roles: incubation_manager, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "mentor.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/mentor-applications/{id}/review": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/mentor-applications/:id/review",
+        "description": "Permission `mentor.review`. Roles: incubation_manager, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "mentor.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/mentoring": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/mentoring",
+        "description": "Permission `mentor.review`. Roles: incubation_manager, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "mentor.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/mentoring/conflicts": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/mentoring/conflicts",
+        "description": "Permission `mentor.review`. Roles: incubation_manager, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "mentor.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/mentoring/conflicts/{id}/resolve": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/mentoring/conflicts/:id/resolve",
+        "description": "Permission `mentor.review`. Roles: incubation_manager, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "mentor.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/mentorship": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/mentorship",
+        "description": "Permission `mentor.review`. Roles: incubation_manager, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "mentor.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/milestones": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/milestones",
+        "description": "Permission `milestone.review`. Roles: incubation_manager, programme_coordinator, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "milestone.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/milestones/{id}": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/milestones/:id",
+        "description": "Permission `milestone.review`. Roles: incubation_manager, programme_coordinator, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "milestone.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/milestones/{id}/review": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/milestones/:id/review",
+        "description": "Permission `milestone.review`. Roles: incubation_manager, programme_coordinator, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "milestone.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/overview": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/overview",
+        "description": "Permission `portal.admin`. Roles: programme_coordinator, funding_officer, incubation_manager, support_officer, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "portal.admin",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/programme-applications/{id}/assign": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/programme-applications/:id/assign",
+        "description": "Permission `programme.manage`. Roles: programme_coordinator, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "programme.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/programme-applications/{id}/decide": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/programme-applications/:id/decide",
+        "description": "Permission `programme.manage`. Roles: programme_coordinator, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "programme.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/programme-applications/{id}/review": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/programme-applications/:id/review",
+        "description": "Permission `programme.manage`. Roles: programme_coordinator, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "programme.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/programmes": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/programmes",
+        "description": "Permission `programme.manage`. Roles: programme_coordinator, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "programme.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/programmes",
+        "description": "Permission `programme.manage`. Roles: programme_coordinator, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "programme.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/programmes/{id}": {
+      "patch": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "PATCH /api/admin/programmes/:id",
+        "description": "Permission `programme.manage`. Roles: programme_coordinator, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "programme.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/programmes/{id}/applications": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/programmes/:id/applications",
+        "description": "Permission `programme.manage`. Roles: programme_coordinator, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "programme.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/programmes/{id}/archive": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/programmes/:id/archive",
+        "description": "Permission `programme.manage`. Roles: programme_coordinator, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "programme.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/programmes/{id}/close": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/programmes/:id/close",
+        "description": "Permission `programme.manage`. Roles: programme_coordinator, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "programme.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/programmes/{id}/publish": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/programmes/:id/publish",
+        "description": "Permission `programme.manage`. Roles: programme_coordinator, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "programme.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/resources": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/resources",
+        "description": "Permission `resource.publish`. Roles: programme_coordinator, incubation_manager, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "resource.publish",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/role-requests": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/role-requests",
+        "description": "Permission `user.manage`. Roles: admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "user.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/role-requests/{id}/decide": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/role-requests/:id/decide",
+        "description": "Permission `user.manage`. Roles: admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "user.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/staff": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/staff",
+        "description": "Permission `portal.admin`. Roles: programme_coordinator, funding_officer, incubation_manager, support_officer, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "portal.admin",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/support": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/support",
+        "description": "Permission `support.manage`. Roles: support_officer, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "support.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/support/{id}": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/support/:id",
+        "description": "Permission `support.manage`. Roles: support_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "support.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "PATCH /api/admin/support/:id",
+        "description": "Permission `support.manage`. Roles: support_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "support.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/support/{id}/assign": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/support/:id/assign",
+        "description": "Permission `support.manage`. Roles: support_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "support.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/support/{id}/note": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/support/:id/note",
+        "description": "Permission `support.manage`. Roles: support_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "support.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/support/{id}/respond": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/support/:id/respond",
+        "description": "Permission `support.manage`. Roles: support_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "support.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/users": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/users",
+        "description": "Permission `user.manage`. Roles: admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "user.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/users/{id}": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/users/:id",
+        "description": "Permission `user.manage`. Roles: admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "user.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/users/{id}/confirm-email": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/users/:id/confirm-email",
+        "description": "Permission `user.manage`. Roles: admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "user.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/users/{id}/roles": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/users/:id/roles",
+        "description": "Permission `user.manage`. Roles: admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "user.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/users/{id}/status": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/users/:id/status",
+        "description": "Permission `user.manage`. Roles: admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "user.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/ventures": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/ventures",
+        "description": "Permission `venture.review`. Roles: incubation_manager, programme_coordinator, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "venture.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/ventures/{id}/review": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/ventures/:id/review",
+        "description": "Permission `venture.review`. Roles: incubation_manager, programme_coordinator, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "venture.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/verification": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/verification",
+        "description": "Permission `verification.review`. Roles: support_officer, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "verification.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/verification/{id}": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/verification/:id",
+        "description": "Permission `verification.review`. Roles: support_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "verification.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/verification/{id}/claim": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/verification/:id/claim",
+        "description": "Permission `verification.review`. Roles: support_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "verification.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/verification/{id}/decide": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/verification/:id/decide",
+        "description": "Permission `verification.review`. Roles: support_officer, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "verification.review",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/workshops": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/workshops",
+        "description": "Permission `workshop.manage`. Roles: programme_coordinator, incubation_manager, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "workshop.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/workshops",
+        "description": "Permission `workshop.manage`. Roles: programme_coordinator, incubation_manager, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "workshop.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/workshops/{id}": {
+      "patch": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "PATCH /api/admin/workshops/:id",
+        "description": "Permission `workshop.manage`. Roles: programme_coordinator, incubation_manager, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "workshop.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/workshops/{id}/attendance": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/workshops/:id/attendance",
+        "description": "Permission `workshop.manage`. Roles: programme_coordinator, incubation_manager, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "workshop.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/workshops/{id}/cancel": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/workshops/:id/cancel",
+        "description": "Permission `workshop.manage`. Roles: programme_coordinator, incubation_manager, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "workshop.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/workshops/{id}/complete": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/workshops/:id/complete",
+        "description": "Permission `workshop.manage`. Roles: programme_coordinator, incubation_manager, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "workshop.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/workshops/{id}/publish": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "POST /api/admin/workshops/:id/publish",
+        "description": "Permission `workshop.manage`. Roles: programme_coordinator, incubation_manager, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "workshop.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/admin/workshops/{id}/registrations": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "GET /api/admin/workshops/:id/registrations",
+        "description": "Permission `workshop.manage`. Roles: programme_coordinator, incubation_manager, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "workshop.manage",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/auth/change-password": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "POST /api/auth/change-password",
+        "description": "Signed in. max 10 requests per 15 min per IP",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/auth/forgot-password": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "POST /api/auth/forgot-password",
+        "description": "Public. max 10 requests per 15 min per IP",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "POST /api/auth/login",
+        "description": "Public. max 40 requests per 15 min per IP",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "POST /api/auth/logout",
+        "description": "Public",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "GET /api/auth/me",
+        "description": "Signed in. also open to suspended accounts",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "POST /api/auth/register",
+        "description": "Public. max 20 requests per 15 min per IP",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/auth/resend-verification": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "POST /api/auth/resend-verification",
+        "description": "Signed in. also open to suspended accounts",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/auth/reset-password": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "POST /api/auth/reset-password",
+        "description": "Public. max 10 requests per 15 min per IP",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/auth/verify-email": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "POST /api/auth/verify-email",
+        "description": "Public. max 30 requests per 15 min per IP",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/dashboard": {
+      "get": {
+        "tags": [
+          "dashboard"
+        ],
+        "summary": "GET /api/dashboard",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/documents": {
+      "post": {
+        "tags": [
+          "documents"
+        ],
+        "summary": "POST /api/documents",
+        "description": "Signed in. raw request body (file upload)",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/documents/{id}": {
+      "delete": {
+        "tags": [
+          "documents"
+        ],
+        "summary": "DELETE /api/documents/:id",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/documents/{id}/download": {
+      "get": {
+        "tags": [
+          "documents"
+        ],
+        "summary": "GET /api/documents/:id/download",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/documents/mine": {
+      "get": {
+        "tags": [
+          "documents"
+        ],
+        "summary": "GET /api/documents/mine",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/funding/applications/{id}": {
+      "get": {
+        "tags": [
+          "funding"
+        ],
+        "summary": "GET /api/funding/applications/:id",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "funding"
+        ],
+        "summary": "PUT /api/funding/applications/:id",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/funding/applications/{id}/sign-agreement": {
+      "post": {
+        "tags": [
+          "funding"
+        ],
+        "summary": "POST /api/funding/applications/:id/sign-agreement",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/funding/applications/{id}/submit": {
+      "post": {
+        "tags": [
+          "funding"
+        ],
+        "summary": "POST /api/funding/applications/:id/submit",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/funding/applications/{id}/withdraw": {
+      "post": {
+        "tags": [
+          "funding"
+        ],
+        "summary": "POST /api/funding/applications/:id/withdraw",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/funding/applications/mine": {
+      "get": {
+        "tags": [
+          "funding"
+        ],
+        "summary": "GET /api/funding/applications/mine",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/funding/opportunities": {
+      "get": {
+        "tags": [
+          "funding"
+        ],
+        "summary": "GET /api/funding/opportunities",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/funding/opportunities/{id}/applications": {
+      "post": {
+        "tags": [
+          "funding"
+        ],
+        "summary": "POST /api/funding/opportunities/:id/applications",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/health": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "GET /api/health",
+        "description": "Public",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/me": {
+      "get": {
+        "tags": [
+          "me"
+        ],
+        "summary": "GET /api/me",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "me"
+        ],
+        "summary": "PATCH /api/me",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/me/affiliation": {
+      "put": {
+        "tags": [
+          "me"
+        ],
+        "summary": "PUT /api/me/affiliation",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/me/preferences": {
+      "put": {
+        "tags": [
+          "me"
+        ],
+        "summary": "PUT /api/me/preferences",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentor/application": {
+      "get": {
+        "tags": [
+          "mentor"
+        ],
+        "summary": "GET /api/mentor/application",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "mentor"
+        ],
+        "summary": "PUT /api/mentor/application",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentor/application/submit": {
+      "post": {
+        "tags": [
+          "mentor"
+        ],
+        "summary": "POST /api/mentor/application/submit",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentor/application/withdraw": {
+      "post": {
+        "tags": [
+          "mentor"
+        ],
+        "summary": "POST /api/mentor/application/withdraw",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentors": {
+      "get": {
+        "tags": [
+          "mentors"
+        ],
+        "summary": "GET /api/mentors",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentors/{id}": {
+      "get": {
+        "tags": [
+          "mentors"
+        ],
+        "summary": "GET /api/mentors/:id",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/actions/{id}/status": {
+      "post": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "POST /api/mentorship/actions/:id/status",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/recommendations": {
+      "get": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "GET /api/mentorship/recommendations",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/requests": {
+      "get": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "GET /api/mentorship/requests",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "POST /api/mentorship/requests",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/requests/{id}/actions": {
+      "get": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "GET /api/mentorship/requests/:id/actions",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "POST /api/mentorship/requests/:id/actions",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/requests/{id}/cancel": {
+      "post": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "POST /api/mentorship/requests/:id/cancel",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/requests/{id}/complete": {
+      "post": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "POST /api/mentorship/requests/:id/complete",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/requests/{id}/conflict": {
+      "post": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "POST /api/mentorship/requests/:id/conflict",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/requests/{id}/conflicts": {
+      "get": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "GET /api/mentorship/requests/:id/conflicts",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/requests/{id}/feedback": {
+      "post": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "POST /api/mentorship/requests/:id/feedback",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/requests/{id}/respond": {
+      "post": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "POST /api/mentorship/requests/:id/respond",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/requests/{id}/sessions": {
+      "get": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "GET /api/mentorship/requests/:id/sessions",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "POST /api/mentorship/requests/:id/sessions",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/sessions/{id}/cancel": {
+      "post": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "POST /api/mentorship/sessions/:id/cancel",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/sessions/{id}/complete": {
+      "post": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "POST /api/mentorship/sessions/:id/complete",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/mentorship/sessions/{id}/reschedule": {
+      "post": {
+        "tags": [
+          "mentorship"
+        ],
+        "summary": "POST /api/mentorship/sessions/:id/reschedule",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/meta": {
+      "get": {
+        "tags": [
+          "meta"
+        ],
+        "summary": "GET /api/meta",
+        "description": "Public",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/milestones/{id}": {
+      "patch": {
+        "tags": [
+          "milestones"
+        ],
+        "summary": "PATCH /api/milestones/:id",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/milestones/{id}/evidence": {
+      "get": {
+        "tags": [
+          "milestones"
+        ],
+        "summary": "GET /api/milestones/:id/evidence",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/milestones/{id}/transition": {
+      "post": {
+        "tags": [
+          "milestones"
+        ],
+        "summary": "POST /api/milestones/:id/transition",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/milestones/mine": {
+      "get": {
+        "tags": [
+          "milestones"
+        ],
+        "summary": "GET /api/milestones/mine",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/notifications": {
+      "get": {
+        "tags": [
+          "notifications"
+        ],
+        "summary": "GET /api/notifications",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/notifications/{id}/read": {
+      "post": {
+        "tags": [
+          "notifications"
+        ],
+        "summary": "POST /api/notifications/:id/read",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/notifications/read-all": {
+      "post": {
+        "tags": [
+          "notifications"
+        ],
+        "summary": "POST /api/notifications/read-all",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/programme-applications/{id}/resubmit": {
+      "post": {
+        "tags": [
+          "programme-applications"
+        ],
+        "summary": "POST /api/programme-applications/:id/resubmit",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/programme-applications/{id}/withdraw": {
+      "post": {
+        "tags": [
+          "programme-applications"
+        ],
+        "summary": "POST /api/programme-applications/:id/withdraw",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/programme-applications/mine": {
+      "get": {
+        "tags": [
+          "programme-applications"
+        ],
+        "summary": "GET /api/programme-applications/mine",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/programmes": {
+      "get": {
+        "tags": [
+          "programmes"
+        ],
+        "summary": "GET /api/programmes",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/programmes/{id}": {
+      "get": {
+        "tags": [
+          "programmes"
+        ],
+        "summary": "GET /api/programmes/:id",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/programmes/{id}/apply": {
+      "post": {
+        "tags": [
+          "programmes"
+        ],
+        "summary": "POST /api/programmes/:id/apply",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/reports/analytics": {
+      "get": {
+        "tags": [
+          "reports"
+        ],
+        "summary": "GET /api/reports/analytics",
+        "description": "Permission `report.view`. Roles: programme_coordinator, incubation_manager, funding_officer, partner, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "report.view",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/reports/export.csv": {
+      "get": {
+        "tags": [
+          "reports"
+        ],
+        "summary": "GET /api/reports/export.csv",
+        "description": "Permission `report.export`. Roles: programme_coordinator, incubation_manager, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "report.export",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/reports/summary": {
+      "get": {
+        "tags": [
+          "reports"
+        ],
+        "summary": "GET /api/reports/summary",
+        "description": "Permission `report.view`. Roles: programme_coordinator, incubation_manager, funding_officer, partner, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "report.view",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/resources": {
+      "get": {
+        "tags": [
+          "resources"
+        ],
+        "summary": "GET /api/resources",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "resources"
+        ],
+        "summary": "POST /api/resources",
+        "description": "Permission `resource.create`. Roles: lecturer, mentor, programme_coordinator, incubation_manager, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "resource.create",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/resources/{id}": {
+      "patch": {
+        "tags": [
+          "resources"
+        ],
+        "summary": "PATCH /api/resources/:id",
+        "description": "Permission `resource.create`. Roles: lecturer, mentor, programme_coordinator, incubation_manager, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "resource.create",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/resources/{id}/archive": {
+      "post": {
+        "tags": [
+          "resources"
+        ],
+        "summary": "POST /api/resources/:id/archive",
+        "description": "Permission `resource.publish`. Roles: programme_coordinator, incubation_manager, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "resource.publish",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/resources/{id}/download": {
+      "get": {
+        "tags": [
+          "resources"
+        ],
+        "summary": "GET /api/resources/:id/download",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/resources/{id}/publish": {
+      "post": {
+        "tags": [
+          "resources"
+        ],
+        "summary": "POST /api/resources/:id/publish",
+        "description": "Permission `resource.publish`. Roles: programme_coordinator, incubation_manager, admin, super_admin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "resource.publish",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/resources/mine": {
+      "get": {
+        "tags": [
+          "resources"
+        ],
+        "summary": "GET /api/resources/mine",
+        "description": "Permission `resource.create`. Roles: lecturer, mentor, programme_coordinator, incubation_manager, admin, super_admin",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "x-permission": "resource.create",
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/role-requests": {
+      "post": {
+        "tags": [
+          "role-requests"
+        ],
+        "summary": "POST /api/role-requests",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/role-requests/{id}/withdraw": {
+      "post": {
+        "tags": [
+          "role-requests"
+        ],
+        "summary": "POST /api/role-requests/:id/withdraw",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/role-requests/mine": {
+      "get": {
+        "tags": [
+          "role-requests"
+        ],
+        "summary": "GET /api/role-requests/mine",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/support": {
+      "post": {
+        "tags": [
+          "support"
+        ],
+        "summary": "POST /api/support",
+        "description": "Signed in. max 20 requests per 15 min per IP; also open to suspended accounts",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/support/{id}": {
+      "get": {
+        "tags": [
+          "support"
+        ],
+        "summary": "GET /api/support/:id",
+        "description": "Signed in. also open to suspended accounts",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/support/{id}/messages": {
+      "post": {
+        "tags": [
+          "support"
+        ],
+        "summary": "POST /api/support/:id/messages",
+        "description": "Signed in. max 60 requests per 15 min per IP; also open to suspended accounts",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/support/mine": {
+      "get": {
+        "tags": [
+          "support"
+        ],
+        "summary": "GET /api/support/mine",
+        "description": "Signed in. also open to suspended accounts",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/ventures": {
+      "get": {
+        "tags": [
+          "ventures"
+        ],
+        "summary": "GET /api/ventures",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ventures"
+        ],
+        "summary": "POST /api/ventures",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/ventures/{id}": {
+      "get": {
+        "tags": [
+          "ventures"
+        ],
+        "summary": "GET /api/ventures/:id",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "ventures"
+        ],
+        "summary": "PATCH /api/ventures/:id",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/ventures/{id}/archive": {
+      "post": {
+        "tags": [
+          "ventures"
+        ],
+        "summary": "POST /api/ventures/:id/archive",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/ventures/{id}/history": {
+      "get": {
+        "tags": [
+          "ventures"
+        ],
+        "summary": "GET /api/ventures/:id/history",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/ventures/{id}/members": {
+      "post": {
+        "tags": [
+          "ventures"
+        ],
+        "summary": "POST /api/ventures/:id/members",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/ventures/{id}/members/{userId}": {
+      "delete": {
+        "tags": [
+          "ventures"
+        ],
+        "summary": "DELETE /api/ventures/:id/members/:userId",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/ventures/{id}/milestones": {
+      "get": {
+        "tags": [
+          "ventures"
+        ],
+        "summary": "GET /api/ventures/:id/milestones",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ventures"
+        ],
+        "summary": "POST /api/ventures/:id/milestones",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/ventures/{id}/submit": {
+      "post": {
+        "tags": [
+          "ventures"
+        ],
+        "summary": "POST /api/ventures/:id/submit",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/ventures/{id}/unarchive": {
+      "post": {
+        "tags": [
+          "ventures"
+        ],
+        "summary": "POST /api/ventures/:id/unarchive",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/verification/mine": {
+      "get": {
+        "tags": [
+          "verification"
+        ],
+        "summary": "GET /api/verification/mine",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/verification/submit": {
+      "post": {
+        "tags": [
+          "verification"
+        ],
+        "summary": "POST /api/verification/submit",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/workshops": {
+      "get": {
+        "tags": [
+          "workshops"
+        ],
+        "summary": "GET /api/workshops",
+        "description": "Signed in",
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/workshops/{id}/feedback": {
+      "post": {
+        "tags": [
+          "workshops"
+        ],
+        "summary": "POST /api/workshops/:id/feedback",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    },
+    "/api/workshops/{id}/register": {
+      "delete": {
+        "tags": [
+          "workshops"
+        ],
+        "summary": "DELETE /api/workshops/:id/register",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "workshops"
+        ],
+        "summary": "POST /api/workshops/:id/register",
+        "description": "Signed in",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "session": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success (JSON; shape defined by the handler)."
+          },
+          "4XX": {
+            "description": "Error envelope { error: { code, message, details? } }."
+          }
+        }
+      }
+    }
+  }
+}

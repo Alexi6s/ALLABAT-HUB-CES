@@ -1,0 +1,46 @@
+# Continuous integration for ALABATT-CES.
+# Status: written but NOT executed by the author (no GitHub Actions run has happened). The commands inside are the same
+# ones that were run locally; see docs/TEST_REPORT.md for the local results.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # The app itself needs no packages. Dev tools (TypeScript, Playwright) are installed for the checks below.
+      # No lockfile is committed yet: after the first `npm install` on a networked machine, commit package-lock.json and switch to `npm ci`.
+      - run: npm install --no-audit --no-fund
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run check:web
+      - run: npm run docs:api -- --check
+      - run: npm run docs:db -- --check
+
+  e2e:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: e2e-screenshots
+          path: tests/e2e/screenshots
